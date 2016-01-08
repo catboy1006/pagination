@@ -37,6 +37,7 @@
             // 最多展示多少可见页码 默认为10
             page.defaultLimit = conf.defaultLimit ? conf.defaultLimit : 10 ;
             // 三种打点方式 ， 中间打点， 左边打点， 后边打点
+            conf.currentPage = Number(conf.currentPage)
             if(page.limit <  page.defaultLimit ){
                 for(var i=1; i<= page.limit ; i++){
                     scope.pageList.push(i);
@@ -71,6 +72,7 @@
 
         // 上一页
         scope.prevPage = function(){
+            conf.currentPage = Number(conf.currentPage)
           if(conf.currentPage <= 1) return ;
           conf.currentPage -= 1;
             scope.pageListFn();
@@ -78,6 +80,7 @@
 
         // 下一页
         scope.nextPage = function(){
+          conf.currentPage = Number(conf.currentPage)
           if(conf.currentPage >= page.limit ) return ;
           conf.currentPage += 1;
             scope.pageListFn();
