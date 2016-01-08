@@ -111,7 +111,7 @@
                     scope.pageList.push(i);
                 }
                 scope.pageList.push('...' , page.limit );
-                scope.pageList.unshift('...');
+                scope.pageList.unshift(1,'...');
 
             }
             if((news -5) < 1 && page.limit<5){
@@ -119,7 +119,6 @@
                     scope.pageList.push(i);
                 }
             }
-            console.log(news)
         })
         // 跳转页
         scope.linkPage = function(){
