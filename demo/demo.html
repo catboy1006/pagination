@@ -20,14 +20,14 @@
          <input type="text" class="form-control" ng-model="conf.total">
        </div>
       </div>
-
       <div class="form-group" >
        <label class="col-sm-3  control-label">当前页</label>
        <div class="col-sm-9">
          <input type="text" class="form-control" ng-model="conf.currentPage">
        </div>
       </div>
-    </form>
+  </form>
+    这里还是初始值{{conf.total}}
     <div ui-pagination conf="conf"></div>
   </body>
 </html>
@@ -40,9 +40,9 @@
       $scope.title = 'pagination-directive';
 
       $scope.conf = {
-        total : 200,
+        total : 100,
         currentPage : 1,
-        itemPageLimit : 5,
+        itemPageLimit : 9,
 
         // 是否显示一页选择多少条
         isSelectPage : false,
@@ -50,7 +50,9 @@
         // 是否显示快速跳转
         isLinkPage : false
       }
-
+      setTimeout(function(){
+          $scope.conf.total = 200;
+        },1000)
       $scope.$watch('conf.currentPage' , function(news,old){
           if(news != old){
             old = news;
