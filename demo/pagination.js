@@ -99,6 +99,12 @@
                 scope.pageListFn();
                 return;
             }
+            if(page.limit == 10){
+                for(var i=1 ; i<11; i++){
+                    scope.pageList.push(i);
+                }
+                return;
+            }
             if((Number(news) -5) < 1 ){
                 for(var i=1 ; i<10; i++){
                     scope.pageList.push(i);
