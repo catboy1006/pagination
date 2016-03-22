@@ -38,27 +38,28 @@
             page.defaultLimit = conf.defaultLimit ? conf.defaultLimit : 10 ;
             // 三种打点方式 ， 中间打点， 左边打点， 后边打点
             conf.currentPage = Number(conf.currentPage)
-            if(page.limit <  page.defaultLimit ){
-                for(var i=1; i<= page.limit ; i++){
-                    scope.pageList.push(i);
-                }
-            }else{
-                if(conf.currentPage < 8){
-                    for(var i=1 ; i<10 ; i++){
+                if(page.limit <  page.defaultLimit ){
+                    for(var i=1; i< page.limit ; i++){
                         scope.pageList.push(i);
                     }
-                    scope.pageList.push('...' , page.limit );
-                }else if(conf.currentPage >= page.limit - 5){
-                    for(var i= page.limit - 8 ; i<= page.limit  ; i++){
-                        scope.pageList.push(i);
-                    }
-                    scope.pageList.unshift(1 , '...');
                 }else{
-                    for(var i= conf.currentPage -3 ; i< conf.currentPage + 4 ; i++){
-                        scope.pageList.push(i);
+                    if(conf.currentPage < page.defaultLimit){
+                        for(var i = 1 ; i <= page.defaultLimit; i++){
+                            scope.pageList.push(i);
+                        }
+                        scope.pageList.push('...' , page.limit);
+                    }else if(conf.currentPage > page.limit - page.defaultLimit + 1){
+                        for(var i= page.limit - page.defaultLimit + 1; i<= page.limit; i++){
+                            scope.pageList.push(i);
+                        }
+                        scope.pageList.unshift(1 , '...');
+                    }else{
+                        for(var i = conf.currentPage - Math.floor(page.defaultLimit / 2) ; i< conf.currentPage + Math.ceil(page.defaultLimit / 2) ; i++){
+                            scope.pageList.push(i);
+                        }
+                        scope.pageList.push('...' , page.limit );
+                        scope.pageList.unshift(1 , '...');
                     }
-                    scope.pageList.push('...' , page.limit );
-                    scope.pageList.unshift(1 , '...');
                 }
             }
         }
