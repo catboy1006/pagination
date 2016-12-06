@@ -11,7 +11,7 @@
         conf : '='
       },
       link : function(scope , ele , attrs){
-
+        console.log(scope.conf)
         var page = scope.page = {};
         var conf = scope.conf ;
 

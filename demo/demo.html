@@ -38,7 +38,6 @@
   app.controller('demoCtro' , function($scope){
 
       $scope.title = 'pagination-directive';
-
       $scope.conf = {
         total : 100,
         currentPage : 1,
@@ -50,10 +49,12 @@
         // 是否显示快速跳转
         isLinkPage : false
       }
-      setTimeout(function(){
-          $scope.conf.total = 200;
-        },1000)
+      $scope.total = $scope.conf.total || 0;
       $scope.$watch('conf.currentPage' , function(news,old){
+          if(news == old){
+          $scope.conf.total = 200;
+          
+          }
           if(news != old){
             old = news;
           }

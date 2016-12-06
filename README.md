@@ -9,7 +9,7 @@
 ### 安装
 ```
 克隆项目到本地
-git clone https://github.com/febobo/angular-pagination.git
+git clone https://github.com/catboy1006/angular-pagination.git
 
 要跑demo环境要求
 node , bower , npm , gulp
